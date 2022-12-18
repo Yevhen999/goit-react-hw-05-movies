@@ -1,0 +1,13 @@
+.navList {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.navListItem {
+  list-style: none;
+}
+
+.navListLink {
+  text-decoration: none;
+}
