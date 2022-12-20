@@ -8,9 +8,6 @@ export const TrendingMoviesList = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
-    if (movies === []) {
-      return;
-    }
     const popularMovies = async () => {
       const resp = await getTrending();
       const { results } = await resp;
