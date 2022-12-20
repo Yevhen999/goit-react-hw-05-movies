@@ -9,3 +9,11 @@ export const getTrending = async () => {
   const data = await response.json();
   return data;
 };
+
+export const getMovieById = async movieId => {
+  const response = await fetch(
+    `${baseUrl}movie/${movieId}?api_key=${API_KEY}&language=en-US`
+  );
+  const data = await response.json();
+  return data;
+};
