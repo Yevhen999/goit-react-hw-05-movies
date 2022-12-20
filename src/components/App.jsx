@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-// import { useState, useEffect } from 'react';
 import { Layout } from './Layout/Layout';
 import { TrendingMoviesList } from './TrendingMoviesList/TrendingMoviesList';
 

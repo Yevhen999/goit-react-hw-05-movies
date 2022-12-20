@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { getTrending } from 'services/api';
 import { Modal } from 'components/Modal/Modal';
+import { Link } from 'react-router-dom';
 
 export const TrendingMoviesList = () => {
   const [movies, setMovies] = useState([]);
@@ -19,10 +20,6 @@ export const TrendingMoviesList = () => {
     popularMovies();
   }, []);
 
-  // useEffect(() => {
-  //   setSelectedMovie(selectedMovie);
-  // }, [selectedMovie]);
-
   const selectMovie = id => {
     console.log(id);
     setSelectedMovie(id);
@@ -32,8 +29,8 @@ export const TrendingMoviesList = () => {
     <div>
       <ul>
         {movies.map(({ title, id }) => (
-          <li key={id} onClick={() => selectMovie(id)}>
-            {title}
+          <li key={id}>
+            <Link onClick={() => selectMovie(id)}>{title}</Link>
           </li>
         ))}
       </ul>
