@@ -1,14 +1,16 @@
 import { Route, Routes } from 'react-router-dom';
+// import { useState, useEffect } from 'react';
 import { Layout } from './Layout/Layout';
+import { TrendingMoviesList } from './TrendingMoviesList/TrendingMoviesList';
 
-// import { getTrending } from '../services/api';
 export const App = () => {
-  // getTrending();
-
   return (
     <div>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route path="movies" element={<TrendingMoviesList />}>
+            Home
+          </Route>
           <Route path="movies">Home</Route>
           <Route path="movies">Movies</Route>
         </Route>

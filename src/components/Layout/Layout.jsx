@@ -1,4 +1,6 @@
+// import { Outlet } from 'react-router-dom';
 import css from './Layout.module.css';
+import { TrendingMoviesList } from 'components/TrendingMoviesList/TrendingMoviesList';
 
 export const Layout = () => {
   return (
@@ -13,6 +15,7 @@ export const Layout = () => {
           Movies
         </a>
       </li>
+      <TrendingMoviesList />
     </ul>
   );
 };
