@@ -3,6 +3,7 @@ import { getTrending } from 'services/api';
 import { Modal } from 'components/Modal/Modal';
 import { Link } from 'react-router-dom';
 import { getMovieById } from 'services/api';
+// import { useParams } from 'react-router-dom';
 
 export const TrendingMoviesList = () => {
   const [movies, setMovies] = useState([]);
@@ -30,7 +31,9 @@ export const TrendingMoviesList = () => {
         <ul>
           {movies.map(({ title, id }) => (
             <li key={id}>
-              <Link onClick={() => selectMovie(id)}>{title}</Link>
+              <Link to={`/movies/${id}`} onClick={() => selectMovie(id)}>
+                {title}
+              </Link>
             </li>
           ))}
         </ul>

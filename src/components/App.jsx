@@ -3,6 +3,7 @@ import { Layout } from './Layout/Layout';
 import { TrendingMoviesList } from './TrendingMoviesList/TrendingMoviesList';
 import { SearchBar } from './SearchBar/SearchBar';
 import { NotFound } from './NotFound/NotFound';
+import { Modal } from './Modal/Modal';
 
 export const App = () => {
   return (
@@ -11,7 +12,7 @@ export const App = () => {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<TrendingMoviesList />}></Route>
           <Route path="movies" element={<SearchBar />}>
-            <Route path=":movieId">
+            <Route path=":movieId" element={<Modal />}>
               <Route path="cast"></Route>
               <Route path="reviews"></Route>
             </Route>
