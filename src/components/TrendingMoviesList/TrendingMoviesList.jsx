@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getTrending } from 'services/api';
-import { Modal } from 'components/Modal/Modal';
 import { Link } from 'react-router-dom';
 import { getMovieById } from 'services/api';
-// import { useParams } from 'react-router-dom';
 
 export const TrendingMoviesList = () => {
   const [movies, setMovies] = useState([]);
@@ -38,8 +36,6 @@ export const TrendingMoviesList = () => {
           ))}
         </ul>
       )}
-
-      {selectedMovie && <Modal selectedMovie={selectedMovie} />}
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import { Link, Outlet } from 'react-router-dom';
-import css from './Layout.module.css';
+import css from './Home.module.css';
 import { TrendingMoviesList } from 'components/TrendingMoviesList/TrendingMoviesList';
 
-export const Layout = () => {
+export const Home = () => {
   return (
     <nav>
       <ul className={css.navList}>
