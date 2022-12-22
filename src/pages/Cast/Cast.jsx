@@ -23,10 +23,6 @@ export const Cast = () => {
     getCast();
   }, [movieId]);
 
-  // const { name, profile_path, character } = cast;
-  // const baseUrl = 'https://image.tmdb.org/t/p/w500';
-  // const url = `${baseUrl}/${profile_path}`;
-
   return (
     <div>
       Cast:
