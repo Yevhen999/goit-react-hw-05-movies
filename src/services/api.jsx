@@ -17,3 +17,11 @@ export const getMovieById = async movieId => {
   const data = await response.json();
   return data;
 };
+
+export const getCastById = async movieId => {
+  const repsonse = await fetch(
+    `${baseUrl}movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
+  );
+  const data = await repsonse.json();
+  return data;
+};

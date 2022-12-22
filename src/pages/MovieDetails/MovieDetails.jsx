@@ -1,6 +1,7 @@
+import { AdditionalInfo } from 'components/AdditionalInfo/AdditionalInfo';
 import { MovieCard } from 'components/MovieCard/MovieCard';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import { getMovieById } from 'services/api';
 
 export const MovieDetails = () => {
@@ -26,6 +27,8 @@ export const MovieDetails = () => {
   return (
     <>
       <MovieCard movie={movie} />
+      <AdditionalInfo />
+      <Outlet />
     </>
   );
 };
