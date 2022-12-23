@@ -24,20 +24,14 @@ export const Movies = () => {
     getMovies();
   }, [query]);
 
-  // const movies = getMoviesByQuery();
-
-  // const visibleMovies = movies.filter(movie =>
-  //   movie.name.toLowerCase().includes(query.toLowerCase())
-  // );
-
   const updateQueryString = movieName => {
     setSearchParams(movieName !== '' ? { query: movieName } : {});
   };
 
   return (
     <main>
-      <SearchBox onChange={updateQueryString} />
-      <MovieList movies={movies} />
+      <SearchBox onSubmit={updateQueryString} />
+      {query !== null && <MovieList movies={movies} />}
     </main>
   );
 };
