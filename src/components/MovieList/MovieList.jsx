@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { getMovieById } from 'services/api';
 
-export const MovieList = ({ movies }) => {
+const MovieList = ({ movies }) => {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const location = useLocation();
 
@@ -31,3 +31,5 @@ export const MovieList = ({ movies }) => {
     </div>
   );
 };
+
+export default MovieList;

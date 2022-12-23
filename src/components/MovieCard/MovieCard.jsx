@@ -1,7 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
 
-export const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie }) => {
   const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/movies';
   const { title, genres, release_date, overview, vote_average, poster_path } =
     movie;
   const userScore = (vote_average / 10) * 100;
@@ -10,7 +11,7 @@ export const MovieCard = ({ movie }) => {
 
   return (
     <main>
-      <Link to={location.state.from}>Go back</Link>
+      <Link to={backLinkHref}>Go back</Link>
       <div style={{ display: 'flex', gap: '15px' }}>
         <img src={imgUrl} alt="film-card" />
         <div style={{ width: '550px' }}>
@@ -26,3 +27,5 @@ export const MovieCard = ({ movie }) => {
     </main>
   );
 };
+
+export default MovieCard;

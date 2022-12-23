@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export const AdditionalInfo = () => {
+const AdditionalInfo = () => {
   return (
     <div
       style={{
@@ -21,3 +21,5 @@ export const AdditionalInfo = () => {
     </div>
   );
 };
+
+export default AdditionalInfo;

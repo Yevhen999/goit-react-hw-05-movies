@@ -1,10 +1,10 @@
-import { AdditionalInfo } from 'components/AdditionalInfo/AdditionalInfo';
-import { MovieCard } from 'components/MovieCard/MovieCard';
+import AdditionalInfo from 'components/AdditionalInfo/AdditionalInfo';
+import MovieCard from 'components/MovieCard/MovieCard';
 import { useEffect, useState } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import { getMovieById } from 'services/api';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
 
@@ -32,3 +32,5 @@ export const MovieDetails = () => {
     </>
   );
 };
+
+export default MovieDetails;

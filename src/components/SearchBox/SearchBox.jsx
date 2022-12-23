@@ -1,4 +1,4 @@
-export const SearchBox = ({ onSubmit }) => {
+const SearchBox = ({ onSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
     const { value } = e.target.name;
@@ -15,3 +15,5 @@ export const SearchBox = ({ onSubmit }) => {
     </div>
   );
 };
+
+export default SearchBox;
