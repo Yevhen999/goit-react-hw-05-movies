@@ -3,21 +3,23 @@ export const MovieCard = ({ movie }) => {
     movie;
   const userScore = (vote_average / 10) * 100;
   const userAverageScore = userScore.toFixed(0);
-  const imgUrl = `https://image.tmdb.org/t/p/w500/${poster_path}`;
+  const imgUrl = `https://image.tmdb.org/t/p/w300/${poster_path}`;
 
   return (
-    <div style={{ display: 'flex', gap: '15px' }}>
-      <img src={imgUrl} alt="film-card" />
-      <div style={{ width: '500px' }}>
-        <h1>
-          {title} ({release_date})
-        </h1>
-        <p>User score: {userAverageScore}%</p>
-        <h2>Overview</h2>
-        <p>{overview}</p>
-        <h2>Genre</h2>
-        <p>{genres && genres[0].name}</p>
+    <main>
+      <button type="button">Go back</button>
+      <div style={{ display: 'flex', gap: '15px' }}>
+        <img src={imgUrl} alt="film-card" />
+        <div style={{ width: '550px' }}>
+          <h1>{title}</h1>
+          <h3>Release: {release_date}</h3>
+          <p>User score: {userAverageScore}%</p>
+          <h2>Overview</h2>
+          <p>{overview}</p>
+          <h2>Genre</h2>
+          <p>{genres && genres[0].name}</p>
+        </div>
       </div>
-    </div>
+    </main>
   );
 };

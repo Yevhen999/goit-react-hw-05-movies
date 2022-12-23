@@ -25,6 +25,7 @@ export const TrendingMoviesList = () => {
 
   return (
     <div>
+      <h2>Trending today</h2>
       {selectedMovie === null && (
         <ul>
           {movies.map(({ title, id }) => (
