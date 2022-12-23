@@ -5,14 +5,15 @@ import { getReviewsById } from 'services/api';
 export const Reviews = () => {
   const { movieId } = useParams();
 
-  const [reviews, setReviews] = useState(null);
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     const getReviews = async () => {
       const { results } = await getReviewsById(movieId);
-      const reviewsData = await results.map(({ author, content, url }) => ({
+      const reviewsData = await results.map(({ author, content, id }) => ({
         author,
         content,
+        id,
       }));
       setReviews(reviewsData);
       return;
@@ -24,18 +25,17 @@ export const Reviews = () => {
   return (
     <div>
       <div>
-        Reviews
-        {reviews.length === 0 ? (
-          <h2>No reviews</h2>
-        ) : (
+        {reviews.length > 0 ? (
           <ul>
-            {reviews.map(({ author, content, url }) => (
-              <li key={url}>
+            {reviews.map(({ author, content, id }) => (
+              <li key={id}>
                 <h2>{author}</h2>
                 <p>{content}</p>
               </li>
             ))}
           </ul>
+        ) : (
+          <h2>We don't have any reviews for this movie</h2>
         )}
       </div>
     </div>

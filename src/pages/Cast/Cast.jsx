@@ -8,7 +8,6 @@ export const Cast = () => {
   const [cast, setCast] = useState([]);
 
   useEffect(() => {
-    console.log(movieId);
     const getCast = async () => {
       const { cast } = await getCastById(movieId);
       const castData = await cast.map(({ name, profile_path, character }) => ({
@@ -25,7 +24,6 @@ export const Cast = () => {
 
   return (
     <div>
-      Cast:
       <div>
         <ul>
           {cast.map(({ name, profile_path, character }) => (
