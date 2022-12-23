@@ -1,4 +1,7 @@
+import { Link, useLocation } from 'react-router-dom';
+
 export const MovieCard = ({ movie }) => {
+  const location = useLocation();
   const { title, genres, release_date, overview, vote_average, poster_path } =
     movie;
   const userScore = (vote_average / 10) * 100;
@@ -7,7 +10,7 @@ export const MovieCard = ({ movie }) => {
 
   return (
     <main>
-      <button type="button">Go back</button>
+      <Link to={location.state.from}>Go back</Link>
       <div style={{ display: 'flex', gap: '15px' }}>
         <img src={imgUrl} alt="film-card" />
         <div style={{ width: '550px' }}>

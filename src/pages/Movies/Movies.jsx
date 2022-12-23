@@ -8,6 +8,7 @@ export const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query' ?? '');
+
   // console.log(query);
 
   useEffect(() => {
