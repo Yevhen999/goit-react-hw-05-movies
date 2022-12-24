@@ -7,19 +7,16 @@ import { Oval } from 'react-loader-spinner';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!movieId) {
-      return;
-    }
-
     const movieRequest = async () => {
       try {
         setIsLoading(true);
         const result = await getMovieById(movieId);
+        // console.log(result);
         setMovie(result);
         setIsLoading(false);
       } catch {
@@ -28,6 +25,8 @@ const MovieDetails = () => {
     };
     movieRequest();
   }, [movieId]);
+
+  console.log(movie);
 
   return (
     <>
@@ -45,8 +44,8 @@ const MovieDetails = () => {
           strokeWidthSecondary={2}
         />
       )}
-      {!isLoading && <MovieCard movie={movie} />}
-      {!isLoading && <AdditionalInfo />}
+      {!isLoading && movie && !error && <MovieCard movie={movie} />}
+      {!isLoading && movie && <AdditionalInfo />}
       {error && <h2>{error}</h2>}
       <Outlet />
     </>

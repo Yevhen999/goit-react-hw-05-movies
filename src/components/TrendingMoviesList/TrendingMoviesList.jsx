@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
 import { getTrending } from 'services/api';
 import { Link, useLocation } from 'react-router-dom';
-import { getMovieById } from 'services/api';
 import { Oval } from 'react-loader-spinner';
 import css from './TrendingMoviesList.module.css';
 
 const TrendingMoviesList = () => {
   const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -29,12 +27,6 @@ const TrendingMoviesList = () => {
     popularMovies();
   }, []);
 
-  const selectMovie = async id => {
-    const resp = await getMovieById(id);
-    setSelectedMovie(resp);
-    return;
-  };
-
   return (
     <div>
       <h2>Trending today</h2>
@@ -52,21 +44,15 @@ const TrendingMoviesList = () => {
           strokeWidthSecondary={2}
         />
       )}
-      {selectedMovie === null && (
-        <ul>
-          {movies.map(({ title, id }) => (
-            <li key={id} className={css.listItem}>
-              <Link
-                to={`/movies/${id}`}
-                state={{ from: location }}
-                onClick={() => selectMovie(id)}
-              >
-                {title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul>
+        {movies.map(({ title, id }) => (
+          <li key={id} className={css.listItem}>
+            <Link to={`/movies/${id}`} state={{ from: location }}>
+              {title}
+            </Link>
+          </li>
+        ))}
+      </ul>
       {error && <h2>{error}</h2>}
     </div>
   );
