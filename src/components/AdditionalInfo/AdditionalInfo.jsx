@@ -1,14 +1,9 @@
 import { Link } from 'react-router-dom';
+import css from './AdditionalInfo.module.css';
 
 const AdditionalInfo = () => {
   return (
-    <div
-      style={{
-        border: '1px tomato solid',
-        marginTop: '10px',
-        padding: '15px',
-      }}
-    >
+    <div className={css.wrap}>
       <h2>Additional info</h2>
       <ul>
         <li>

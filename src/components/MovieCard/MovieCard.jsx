@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import css from './MovieCard.module.css';
 
 const MovieCard = ({ movie }) => {
   const location = useLocation();
@@ -13,7 +14,7 @@ const MovieCard = ({ movie }) => {
   return (
     <main>
       <Link to={backLinkHref}>Go back</Link>
-      <div style={{ display: 'flex', gap: '15px' }}>
+      <div className={css.wrap} style={{ display: 'flex', gap: '15px' }}>
         <img src={imgUrl} alt="film-card" />
         <div style={{ width: '550px' }}>
           <h1>{title}</h1>

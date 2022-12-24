@@ -3,6 +3,7 @@ import { getTrending } from 'services/api';
 import { Link, useLocation } from 'react-router-dom';
 import { getMovieById } from 'services/api';
 import { Oval } from 'react-loader-spinner';
+import css from './TrendingMoviesList.module.css';
 
 const TrendingMoviesList = () => {
   const [movies, setMovies] = useState([]);
@@ -54,7 +55,7 @@ const TrendingMoviesList = () => {
       {selectedMovie === null && (
         <ul>
           {movies.map(({ title, id }) => (
-            <li key={id}>
+            <li key={id} className={css.listItem}>
               <Link
                 to={`/movies/${id}`}
                 state={{ from: location }}

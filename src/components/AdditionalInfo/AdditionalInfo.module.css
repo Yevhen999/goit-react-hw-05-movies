@@ -1,0 +1,10 @@
+.wrap {
+  border: 1px tomato solid;
+  margin-top: 10px;
+  padding: 15px;
+  display: flex;
+}
+
+ul {
+  list-style: none;
+}

@@ -1,0 +1,20 @@
+.formWrap {
+  background-color: yellow;
+  padding: 40px;
+}
+
+.searchForm {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.searchInput {
+  padding: 5px;
+  width: 400px;
+  border-radius: 10px;
+}
+
+.searchButton {
+  border-radius: 10px;
+}

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import css from './SearchBox.module.css';
 
 const SearchBox = ({ onSubmit }) => {
   const handleSubmit = e => {
@@ -8,10 +9,17 @@ const SearchBox = ({ onSubmit }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="name" />
-        <button type="submit">Search</button>
+    <div className={css.formWrap}>
+      <form className={css.searchForm} onSubmit={handleSubmit}>
+        <input
+          className={css.searchInput}
+          placeholder="Type the movie name"
+          type="text"
+          name="name"
+        />
+        <button className={css.searchButton} type="submit">
+          Search
+        </button>
       </form>
     </div>
   );
