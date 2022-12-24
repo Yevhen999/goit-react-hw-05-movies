@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import css from './AdditionalInfo.module.css';
 
 const AdditionalInfo = () => {
@@ -8,16 +8,28 @@ const AdditionalInfo = () => {
   return (
     <div className={css.wrap}>
       <h2>Additional info</h2>
-      <ul>
+      <ul className={css.listAdditionalInfo}>
         <li>
-          <Link to="cast" state={{ from: backLinkHref }}>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? css.activeListLink : css.listLink
+            }
+            to="cast"
+            state={{ from: backLinkHref }}
+          >
             Cast
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="reviews" state={{ from: backLinkHref }}>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? css.activeListLink : css.listLink
+            }
+            to="reviews"
+            state={{ from: backLinkHref }}
+          >
             Reviews
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </div>

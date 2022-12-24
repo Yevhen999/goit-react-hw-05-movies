@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import css from './Home.module.css';
 import TrendingMoviesList from 'components/TrendingMoviesList/TrendingMoviesList';
 import { Suspense } from 'react';
@@ -10,14 +10,24 @@ const Home = () => {
         <nav>
           <ul className={css.navList}>
             <li className={css.navListItem}>
-              <Link to="/" className={css.navListLink}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? css.activeNavListLink : css.navListLink
+                }
+                to="/"
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li className={css.navListItem}>
-              <Link to="/movies" className={css.navListLink}>
+              <NavLink
+                to="/movies"
+                className={({ isActive }) =>
+                  isActive ? css.activeNavListLink : css.navListLink
+                }
+              >
                 Movies
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>

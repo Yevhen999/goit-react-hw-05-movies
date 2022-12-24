@@ -10,4 +10,14 @@
 
 .navListLink {
   text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.activeNavListLink {
+  text-decoration: none;
+  color: tomato;
+  background-color: yellow;
+  padding: 10px;
+  border-radius: 10px;
 }

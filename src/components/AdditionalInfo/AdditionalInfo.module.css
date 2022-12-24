@@ -5,6 +5,21 @@
   display: flex;
 }
 
-ul {
+.listAdditionalInfo {
   list-style: none;
+  display: flex;
+}
+
+.listLink {
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.activeListLink {
+  text-decoration: none;
+  color: tomato;
+  background-color: yellow;
+  padding: 10px;
+  border-radius: 10px;
 }

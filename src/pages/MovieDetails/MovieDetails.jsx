@@ -16,7 +16,6 @@ const MovieDetails = () => {
       try {
         setIsLoading(true);
         const result = await getMovieById(movieId);
-        // console.log(result);
         setMovie(result);
         setIsLoading(false);
       } catch {
@@ -25,8 +24,6 @@ const MovieDetails = () => {
     };
     movieRequest();
   }, [movieId]);
-
-  console.log(movie);
 
   return (
     <>
