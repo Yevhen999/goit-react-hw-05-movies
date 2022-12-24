@@ -18,11 +18,14 @@ const Movies = () => {
       return;
     }
     const getMovies = async () => {
-      setIsLoading(true);
-      const { results } = await getMoviesByQuery(query);
-      setMovies(results);
-      setIsLoading(false);
-      return;
+      try {
+        setIsLoading(true);
+        const { results } = await getMoviesByQuery(query);
+        setMovies(results);
+        setIsLoading(false);
+      } catch {
+        setError('Failed to fetch');
+      }
     };
     getMovies();
   }, [query]);
@@ -49,6 +52,7 @@ const Movies = () => {
       )}
       {!isLoading && <SearchBox onSubmit={updateQueryString} />}
       {!isLoading && query !== null && <MovieList movies={movies} />}
+      {error && <h2>{error}</h2>}
     </main>
   );
 };

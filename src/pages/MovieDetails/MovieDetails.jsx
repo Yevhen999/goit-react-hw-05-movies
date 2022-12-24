@@ -17,14 +17,14 @@ const MovieDetails = () => {
     }
 
     const movieRequest = async () => {
-      setIsLoading(true);
-      const result = await getMovieById(movieId);
-
-      // MAP //
-
-      setMovie(result);
-      setIsLoading(false);
-      return;
+      try {
+        setIsLoading(true);
+        const result = await getMovieById(movieId);
+        setMovie(result);
+        setIsLoading(false);
+      } catch {
+        setError('Failed to fetch');
+      }
     };
     movieRequest();
   }, [movieId]);
@@ -47,6 +47,7 @@ const MovieDetails = () => {
       )}
       {!isLoading && <MovieCard movie={movie} />}
       {!isLoading && <AdditionalInfo />}
+      {error && <h2>{error}</h2>}
       <Outlet />
     </>
   );

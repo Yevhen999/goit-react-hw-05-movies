@@ -14,12 +14,15 @@ const TrendingMoviesList = () => {
 
   useEffect(() => {
     const popularMovies = async () => {
-      setIsLoading(true);
-      const resp = await getTrending();
-      const { results } = await resp;
-      setMovies(results);
-      setIsLoading(false);
-      return;
+      try {
+        setIsLoading(true);
+        const resp = await getTrending();
+        const { results } = await resp;
+        setMovies(results);
+        setIsLoading(false);
+      } catch {
+        setError('Failed to fetch');
+      }
     };
     popularMovies();
   }, []);
@@ -62,6 +65,7 @@ const TrendingMoviesList = () => {
           ))}
         </ul>
       )}
+      {error && <h2>{error}</h2>}
     </div>
   );
 };

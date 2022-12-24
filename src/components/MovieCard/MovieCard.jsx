@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const MovieCard = ({ movie }) => {
   const location = useLocation();
@@ -29,3 +30,14 @@ const MovieCard = ({ movie }) => {
 };
 
 export default MovieCard;
+
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    genres: PropTypes.arrayOf(PropTypes.object),
+    release_date: PropTypes.string,
+    overview: PropTypes.string,
+    vote_average: PropTypes.number,
+    poster_path: PropTypes.string,
+  }),
+};

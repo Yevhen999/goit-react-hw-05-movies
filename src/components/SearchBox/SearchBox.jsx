@@ -1,8 +1,9 @@
+import PropTypes from 'prop-types';
+
 const SearchBox = ({ onSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
     const { value } = e.target.name;
-    // console.log(value);
     onSubmit(value);
   };
 
@@ -17,3 +18,7 @@ const SearchBox = ({ onSubmit }) => {
 };
 
 export default SearchBox;
+
+SearchBox.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

@@ -6,17 +6,23 @@ const Cast = () => {
   const { movieId } = useParams();
 
   const [cast, setCast] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const getCast = async () => {
-      const { cast } = await getCastById(movieId);
-      const castData = await cast.map(({ name, profile_path, character }) => ({
-        name,
-        profile_path,
-        character,
-      }));
-      setCast(castData);
-      return;
+      try {
+        const { cast } = await getCastById(movieId);
+        const castData = await cast.map(
+          ({ name, profile_path, character }) => ({
+            name,
+            profile_path,
+            character,
+          })
+        );
+        setCast(castData);
+      } catch {
+        setError('Failed to fetch');
+      }
     };
 
     getCast();
@@ -38,6 +44,7 @@ const Cast = () => {
             </li>
           ))}
         </ul>
+        {error && <h2>{error}</h2>}
       </div>
     </div>
   );
