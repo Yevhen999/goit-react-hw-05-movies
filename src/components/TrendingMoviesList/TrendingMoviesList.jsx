@@ -22,6 +22,7 @@ const TrendingMoviesList = () => {
         setIsLoading(false);
       } catch {
         setError('Failed to fetch');
+        setMovies([]);
       }
     };
     popularMovies();
